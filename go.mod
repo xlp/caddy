@@ -136,3 +136,5 @@ require (
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	howett.net/plist v1.0.0 // indirect
 )
+
+replace github.com/caddyserver/certmagic => github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f
