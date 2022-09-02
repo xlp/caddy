@@ -139,6 +139,6 @@ require (
 )
 
 replace (
-	github.com/caddyserver/caddy => github.com/xlp/caddy/v2 v2.0.0-20220901081345-1cb00f1fbc54
-	github.com/caddyserver/certmagic => github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f
+	github.com/caddyserver/caddy => github.com/xlp/caddy/v2 master
+	github.com/caddyserver/certmagic => github.com/xlp/certmagic master
 )
