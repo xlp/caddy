@@ -131,8 +131,6 @@ github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6r
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
 github.com/bketelsen/crypt v0.0.3-0.20200106085610-5cbc8cc4026c/go.mod h1:MKsuJmJgSg28kpZDP6UIiPt0e0Oz0kqKNGyRaWEPv84=
 github.com/boltdb/bolt v1.3.1/go.mod h1:clJnj/oiGkjum5o1McbSZDSLxVThjynRyGBgiAx27Ps=
-github.com/caddyserver/certmagic v0.17.0 h1:AHHvvmv6SNcq0vK5BgCevQqYMV8GNprVk6FWZzx8d+Q=
-github.com/caddyserver/certmagic v0.17.0/go.mod h1:pSS2aZcdKlrTZrb2DKuRafckx20o5Fz1EdDKEB8KOQM=
 github.com/casbin/casbin/v2 v2.1.2/go.mod h1:YcPU1XXisHhLzuxH9coDNf2FbKpjGlbCg3n9yuLkIJQ=
 github.com/cenkalti/backoff v2.2.1+incompatible/go.mod h1:90ReRw6GdpyfrHakVjL/QHaoyV4aDUVVkXQJJJ3NXXM=
 github.com/cenkalti/backoff/v3 v3.0.0/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
@@ -819,6 +817,8 @@ github.com/vishvananda/netlink v1.1.0/go.mod h1:cTgwzPIzzgDAYoQrMm0EdrjRUBkTqKYp
 github.com/vishvananda/netns v0.0.0-20191106174202-0a2b9b5464df/go.mod h1:JP3t17pCcGlemwknint6hfoeCVQrEMVwxRLRjXpq+BU=
 github.com/vishvananda/netns v0.0.0-20211101163701-50045581ed74/go.mod h1:DD4vA1DwXk04H54A1oHXtwZmA0grkVMdPxx/VGLCah0=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
+github.com/xlp/caddy/v2 v2.0.0-20220901081345-1cb00f1fbc54 h1:R+LZugbDHuiJFqii5tBSXrkvyMHrnX6D1FIzOb9dBjs=
+github.com/xlp/caddy/v2 v2.0.0-20220901081345-1cb00f1fbc54/go.mod h1:4h84HeF5GwY29K6p+2ysYN9NFk9o9yQTaWxVpgY54SU=
 github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f h1:H0u3YADOuWFH/DCSHDXqVRa32CMgsOGKDuvuj27I3Oc=
 github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f/go.mod h1:MHa86a4qd8veHQzgIIdT47CfNw0pik5uT4755WN1IgI=
 github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77/go.mod h1:aYKd//L2LvnjZzWKhF00oedf4jCCReLcmhLdhm1A27Q=

@@ -52,6 +52,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/caddyserver/caddy/v2 v2.5.2
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -137,4 +138,7 @@ require (
 	howett.net/plist v1.0.0 // indirect
 )
 
-replace github.com/caddyserver/certmagic => github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f
+replace (
+	github.com/caddyserver/caddy => github.com/xlp/caddy/v2 v2.0.0-20220901081345-1cb00f1fbc54
+	github.com/caddyserver/certmagic => github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f
+)
