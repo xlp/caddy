@@ -24,9 +24,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/caddyserver/caddy/v2"
-	caddycmd "github.com/caddyserver/caddy/v2/cmd"
 	"github.com/smallstep/truststore"
+	"github.com/xlp/caddy/v2"
+	caddycmd "github.com/xlp/caddy/v2/cmd"
 )
 
 func init() {

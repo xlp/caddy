@@ -15,8 +15,8 @@
 package acmeserver
 
 import (
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddypki"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddypki"
 )
 
 func init() {
@@ -25,10 +25,9 @@ func init() {
 
 // parseACMEServer sets up an ACME server handler from Caddyfile tokens.
 //
-//     acme_server [<matcher>] {
-//         ca <id>
-//     }
-//
+//	acme_server [<matcher>] {
+//	    ca <id>
+//	}
 func parseACMEServer(h httpcaddyfile.Helper) ([]httpcaddyfile.ConfigValue, error) {
 	if !h.Next() {
 		return nil, h.ArgErr()

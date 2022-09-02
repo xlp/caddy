@@ -23,12 +23,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
-	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez/acme"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/modules/caddytls"
+	"github.com/xlp/certmagic"
 )
 
 func (st ServerType) buildTLSApp(

@@ -17,11 +17,11 @@ package encode
 import (
 	"strconv"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
 )
 
 func init() {
@@ -39,18 +39,18 @@ func parseCaddyfile(h httpcaddyfile.Helper) (caddyhttp.MiddlewareHandler, error)
 
 // UnmarshalCaddyfile sets up the handler from Caddyfile tokens. Syntax:
 //
-//     encode [<matcher>] <formats...> {
-//         gzip           [<level>]
-//         zstd
-//         minimum_length <length>
-//         # response matcher block
-//         match {
-//             status <code...>
-//             header <field> [<value>]
-//         }
-//         # or response matcher single line syntax
-//         match [header <field> [<value>]] | [status <code...>]
-//     }
+//	encode [<matcher>] <formats...> {
+//	    gzip           [<level>]
+//	    zstd
+//	    minimum_length <length>
+//	    # response matcher block
+//	    match {
+//	        status <code...>
+//	        header <field> [<value>]
+//	    }
+//	    # or response matcher single line syntax
+//	    match [header <field> [<value>]] | [status <code...>]
+//	}
 //
 // Specifying the formats on the first line will use those formats' defaults.
 func (enc *Encode) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {

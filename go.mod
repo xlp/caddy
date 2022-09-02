@@ -7,7 +7,6 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.2
 	github.com/alecthomas/chroma v0.10.0
 	github.com/aryann/difflib v0.0.0-20210328193216-ff5ff6dc229b
-	github.com/caddyserver/certmagic v0.17.0
 	github.com/dustin/go-humanize v1.0.1-0.20200219035652-afde56e7acac
 	github.com/go-chi/chi v4.1.2+incompatible
 	github.com/google/cel-go v0.12.4
@@ -24,6 +23,7 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/pflag v1.0.5
 	github.com/tailscale/tscert v0.0.0-20220316030059-54bbcb9f74e2
+	github.com/xlp/certmagic v0.0.0-20220901075940-027a927a3d4f
 	github.com/yuin/goldmark v1.4.13
 	github.com/yuin/goldmark-highlighting v0.0.0-20220208100518-594be1970594
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
@@ -52,7 +52,6 @@ require (
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/caddyserver/caddy/v2 v2.5.2
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -136,9 +135,4 @@ require (
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	howett.net/plist v1.0.0 // indirect
-)
-
-replace (
-	github.com/caddyserver/caddy => github.com/xlp/caddy/v2 master
-	github.com/caddyserver/certmagic => github.com/xlp/certmagic master
 )

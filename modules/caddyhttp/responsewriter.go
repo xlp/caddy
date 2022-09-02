@@ -111,25 +111,25 @@ type responseRecorder struct {
 //
 // Proper usage of a recorder looks like this:
 //
-//     rec := caddyhttp.NewResponseRecorder(w, buf, shouldBuffer)
-//     err := next.ServeHTTP(rec, req)
-//     if err != nil {
-//         return err
-//     }
-//     if !rec.Buffered() {
-//         return nil
-//     }
-//     // process the buffered response here
+//	rec := caddyhttp.NewResponseRecorder(w, buf, shouldBuffer)
+//	err := next.ServeHTTP(rec, req)
+//	if err != nil {
+//	    return err
+//	}
+//	if !rec.Buffered() {
+//	    return nil
+//	}
+//	// process the buffered response here
 //
 // The header map is not buffered; i.e. the ResponseRecorder's Header()
 // method returns the same header map of the underlying ResponseWriter.
 // This is a crucial design decision to allow HTTP trailers to be
-// flushed properly (https://github.com/caddyserver/caddy/issues/3236).
+// flushed properly (https://github.com/xlp/caddy/issues/3236).
 //
 // Once you are ready to write the response, there are two ways you can
 // do it. The easier way is to have the recorder do it:
 //
-//     rec.WriteResponse()
+//	rec.WriteResponse()
 //
 // This writes the recorded response headers as well as the buffered body.
 // Or, you may wish to do it yourself, especially if you manipulated the
@@ -138,9 +138,8 @@ type responseRecorder struct {
 // recorder's body buffer, but you might have your own body to write
 // instead):
 //
-//     w.WriteHeader(rec.Status())
-//     io.Copy(w, rec.Buffer())
-//
+//	w.WriteHeader(rec.Status())
+//	io.Copy(w, rec.Buffer())
 func NewResponseRecorder(w http.ResponseWriter, buf *bytes.Buffer, shouldBuffer ShouldBufferFunc) ResponseRecorder {
 	return &responseRecorder{
 		ResponseWriterWrapper: &ResponseWriterWrapper{ResponseWriter: w},

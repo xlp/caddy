@@ -24,10 +24,10 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/certmagic"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/certmagic"
 )
 
 // mapAddressToServerBlocks returns a map of listener address to list of server
@@ -36,12 +36,12 @@ import (
 // server block that share the same address stay grouped together so the config
 // isn't repeated unnecessarily. For example, this Caddyfile:
 //
-// 	example.com {
-// 		bind 127.0.0.1
-// 	}
-// 	www.example.com, example.net/path, localhost:9999 {
-// 		bind 127.0.0.1 1.2.3.4
-// 	}
+//	example.com {
+//		bind 127.0.0.1
+//	}
+//	www.example.com, example.net/path, localhost:9999 {
+//		bind 127.0.0.1 1.2.3.4
+//	}
 //
 // has two server blocks to start with. But expressed in this Caddyfile are
 // actually 4 listener addresses: 127.0.0.1:443, 1.2.3.4:443, 127.0.0.1:9999,
@@ -372,7 +372,7 @@ func (a Address) Normalize() Address {
 
 // lowerExceptPlaceholders lowercases s except within
 // placeholders (substrings in non-escaped '{ }' spans).
-// See https://github.com/caddyserver/caddy/issues/3264
+// See https://github.com/xlp/caddy/issues/3264
 func lowerExceptPlaceholders(s string) string {
 	var sb strings.Builder
 	var escaped, inPlaceholder bool

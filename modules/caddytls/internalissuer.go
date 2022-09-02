@@ -21,11 +21,11 @@ import (
 	"encoding/pem"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddypki"
-	"github.com/caddyserver/certmagic"
 	"github.com/smallstep/certificates/authority/provisioner"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/modules/caddypki"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 
@@ -148,12 +148,11 @@ func (iss InternalIssuer) Issue(ctx context.Context, csr *x509.CertificateReques
 
 // UnmarshalCaddyfile deserializes Caddyfile tokens into iss.
 //
-//     ... internal {
-//         ca       <name>
-//         lifetime <duration>
-//         sign_with_root
-//     }
-//
+//	... internal {
+//	    ca       <name>
+//	    lifetime <duration>
+//	    sign_with_root
+//	}
 func (iss *InternalIssuer) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		for d.NextBlock(0) {

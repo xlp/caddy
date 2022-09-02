@@ -9,10 +9,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/certmagic"
 	"github.com/tailscale/tscert"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 
@@ -80,8 +80,7 @@ func (ts Tailscale) canHazCertificate(ctx context.Context, hello *tls.ClientHell
 
 // UnmarshalCaddyfile deserializes Caddyfile tokens into ts.
 //
-//     ... tailscale
-//
+//	... tailscale
 func (Tailscale) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if d.NextArg() {
@@ -178,8 +177,7 @@ func (hcg HTTPCertGetter) GetCertificate(ctx context.Context, hello *tls.ClientH
 
 // UnmarshalCaddyfile deserializes Caddyfile tokens into ts.
 //
-//     ... http <url>
-//
+//	... http <url>
 func (hcg *HTTPCertGetter) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if !d.NextArg() {

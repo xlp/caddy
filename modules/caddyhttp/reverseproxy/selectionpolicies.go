@@ -27,8 +27,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
 )
 
 func init() {
@@ -418,7 +418,8 @@ func (s CookieHashSelection) Select(pool UpstreamPool, req *http.Request, w http
 }
 
 // UnmarshalCaddyfile sets up the module from Caddyfile tokens. Syntax:
-//     lb_policy cookie [<name> [<secret>]]
+//
+//	lb_policy cookie [<name> [<secret>]]
 //
 // By default name is `lb`
 func (s *CookieHashSelection) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {

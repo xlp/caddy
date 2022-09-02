@@ -22,8 +22,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
 )
 
 func init() {
@@ -102,10 +102,9 @@ func (nw NetWriter) OpenWriter() (io.WriteCloser, error) {
 
 // UnmarshalCaddyfile sets up the handler from Caddyfile tokens. Syntax:
 //
-//     net <address> {
-//         dial_timeout <duration>
-//     }
-//
+//	net <address> {
+//	    dial_timeout <duration>
+//	}
 func (nw *NetWriter) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if !d.NextArg() {

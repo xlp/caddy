@@ -17,12 +17,12 @@ package httpcaddyfile
 import (
 	"strconv"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
-	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez/acme"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/modules/caddytls"
+	"github.com/xlp/certmagic"
 )
 
 func init() {
@@ -421,13 +421,13 @@ func parseOCSPStaplingOptions(d *caddyfile.Dispenser, _ any) (any, error) {
 
 // parseLogOptions parses the global log option. Syntax:
 //
-//     log [name] {
-//         output  <writer_module> ...
-//         format  <encoder_module> ...
-//         level   <level>
-//         include <namespaces...>
-//         exclude <namespaces...>
-//     }
+//	log [name] {
+//	    output  <writer_module> ...
+//	    format  <encoder_module> ...
+//	    level   <level>
+//	    include <namespaces...>
+//	    exclude <namespaces...>
+//	}
 //
 // When the name argument is unspecified, this directive modifies the default
 // logger.

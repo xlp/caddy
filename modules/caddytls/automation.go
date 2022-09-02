@@ -21,9 +21,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 

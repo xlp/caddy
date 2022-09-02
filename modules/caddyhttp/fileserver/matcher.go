@@ -25,14 +25,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
 	"github.com/google/cel-go/cel"
 	"github.com/google/cel-go/common"
 	"github.com/google/cel-go/common/operators"
 	"github.com/google/cel-go/common/types/ref"
 	"github.com/google/cel-go/parser"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
 	exprpb "google.golang.org/genproto/googleapis/api/expr/v1alpha1"
 )
 
@@ -113,12 +113,11 @@ func (MatchFile) CaddyModule() caddy.ModuleInfo {
 
 // UnmarshalCaddyfile sets up the matcher from Caddyfile tokens. Syntax:
 //
-//     file <files...> {
-//         root <path>
-//         try_files <files...>
-//         try_policy first_exist|smallest_size|largest_size|most_recently_modified
-//     }
-//
+//	file <files...> {
+//	    root <path>
+//	    try_files <files...>
+//	    try_policy first_exist|smallest_size|largest_size|most_recently_modified
+//	}
 func (m *MatchFile) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		m.TryFiles = append(m.TryFiles, d.RemainingArgs()...)
@@ -156,7 +155,8 @@ func (m *MatchFile) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 // expression matchers.
 //
 // Example:
-//    expression file({'root': '/srv', 'try_files': [{http.request.uri.path}, '/index.php'], 'try_policy': 'first_exist', 'split_path': ['.php']})
+//
+//	expression file({'root': '/srv', 'try_files': [{http.request.uri.path}, '/index.php'], 'try_policy': 'first_exist', 'split_path': ['.php']})
 func (MatchFile) CELLibrary(ctx caddy.Context) (cel.Library, error) {
 	requestType := cel.ObjectType("http.Request")
 
@@ -290,10 +290,10 @@ func (m MatchFile) Validate() error {
 // Match returns true if r matches m. Returns true
 // if a file was matched. If so, four placeholders
 // will be available:
-//    - http.matchers.file.relative
-//    - http.matchers.file.absolute
-//    - http.matchers.file.type
-//    - http.matchers.file.remainder
+//   - http.matchers.file.relative
+//   - http.matchers.file.absolute
+//   - http.matchers.file.type
+//   - http.matchers.file.remainder
 func (m MatchFile) Match(r *http.Request) bool {
 	return m.selectFile(r)
 }

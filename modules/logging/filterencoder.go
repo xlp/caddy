@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
 	"go.uber.org/zap"
 	"go.uber.org/zap/buffer"
 	"go.uber.org/zap/zapcore"
@@ -98,14 +98,14 @@ func (fe *FilterEncoder) Provision(ctx caddy.Context) error {
 
 // UnmarshalCaddyfile sets up the module from Caddyfile tokens. Syntax:
 //
-//     filter {
-//         wrap <another encoder>
-//         fields {
-//             <field> <filter> {
-//                 <filter options>
-//             }
-//         }
-//     }
+//	filter {
+//	    wrap <another encoder>
+//	    fields {
+//	        <field> <filter> {
+//	            <filter options>
+//	        }
+//	    }
+//	}
 func (fe *FilterEncoder) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		for d.NextBlock(0) {

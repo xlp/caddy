@@ -28,8 +28,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/modules/caddytls"
 	"go.uber.org/zap"
 	"golang.org/x/net/http2"
 )

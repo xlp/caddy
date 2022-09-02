@@ -15,8 +15,8 @@
 package templates
 
 import (
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
 )
 
 func init() {
@@ -25,12 +25,11 @@ func init() {
 
 // parseCaddyfile sets up the handler from Caddyfile tokens. Syntax:
 //
-//     templates [<matcher>] {
-//         mime <types...>
-//         between <open_delim> <close_delim>
-//         root <path>
-//     }
-//
+//	templates [<matcher>] {
+//	    mime <types...>
+//	    between <open_delim> <close_delim>
+//	    root <path>
+//	}
 func parseCaddyfile(h httpcaddyfile.Helper) (caddyhttp.MiddlewareHandler, error) {
 	t := new(Templates)
 	for h.Next() {

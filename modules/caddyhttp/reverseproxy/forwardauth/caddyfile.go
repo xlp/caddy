@@ -19,13 +19,13 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/headers"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/reverseproxy"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/rewrite"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/headers"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/reverseproxy"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/rewrite"
 )
 
 func init() {
@@ -38,29 +38,28 @@ func init() {
 // configured for most™️ auth gateways that support forward auth. The typical
 // config which looks something like this:
 //
-//     forward_auth auth-gateway:9091 {
-//         uri /authenticate?redirect=https://auth.example.com
-//         copy_headers Remote-User Remote-Email
-//     }
+//	forward_auth auth-gateway:9091 {
+//	    uri /authenticate?redirect=https://auth.example.com
+//	    copy_headers Remote-User Remote-Email
+//	}
 //
 // is equivalent to a reverse_proxy directive like this:
 //
-//     reverse_proxy auth-gateway:9091 {
-//         method GET
-//         rewrite /authenticate?redirect=https://auth.example.com
+//	reverse_proxy auth-gateway:9091 {
+//	    method GET
+//	    rewrite /authenticate?redirect=https://auth.example.com
 //
-//         header_up X-Forwarded-Method {method}
-//         header_up X-Forwarded-Uri {uri}
+//	    header_up X-Forwarded-Method {method}
+//	    header_up X-Forwarded-Uri {uri}
 //
-//         @good status 2xx
-//         handle_response @good {
-//             request_header {
-//                 Remote-User {http.reverse_proxy.header.Remote-User}
-//                 Remote-Email {http.reverse_proxy.header.Remote-Email}
-//             }
-//         }
-//     }
-//
+//	    @good status 2xx
+//	    handle_response @good {
+//	        request_header {
+//	            Remote-User {http.reverse_proxy.header.Remote-User}
+//	            Remote-Email {http.reverse_proxy.header.Remote-Email}
+//	        }
+//	    }
+//	}
 func parseCaddyfile(h httpcaddyfile.Helper) ([]httpcaddyfile.ConfigValue, error) {
 	if !h.Next() {
 		return nil, h.ArgErr()

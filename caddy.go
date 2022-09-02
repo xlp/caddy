@@ -33,9 +33,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/caddyserver/caddy/v2/notify"
-	"github.com/caddyserver/certmagic"
 	"github.com/google/uuid"
+	"github.com/xlp/caddy/v2/notify"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 
@@ -934,4 +934,4 @@ var errSameConfig = errors.New("config is unchanged")
 
 // ImportPath is the package import path for Caddy core.
 // This identifier may be removed in the future.
-const ImportPath = "github.com/caddyserver/caddy/v2"
+const ImportPath = "github.com/xlp/caddy/v2"

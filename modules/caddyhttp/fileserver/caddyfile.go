@@ -19,13 +19,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/encode"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/rewrite"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/encode"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/rewrite"
 )
 
 func init() {
@@ -36,17 +36,16 @@ func init() {
 // parseCaddyfile parses the file_server directive. It enables the static file
 // server and configures it with this syntax:
 //
-//    file_server [<matcher>] [browse] {
-//        fs            <backend...>
-//        root          <path>
-//        hide          <files...>
-//        index         <files...>
-//        browse        [<template_file>]
-//        precompressed <formats...>
-//        status        <status>
-//        disable_canonical_uris
-//    }
-//
+//	file_server [<matcher>] [browse] {
+//	    fs            <backend...>
+//	    root          <path>
+//	    hide          <files...>
+//	    index         <files...>
+//	    browse        [<template_file>]
+//	    precompressed <formats...>
+//	    status        <status>
+//	    disable_canonical_uris
+//	}
 func parseCaddyfile(h httpcaddyfile.Helper) (caddyhttp.MiddlewareHandler, error) {
 	var fsrv FileServer
 
@@ -177,22 +176,22 @@ func parseCaddyfile(h httpcaddyfile.Helper) (caddyhttp.MiddlewareHandler, error)
 // with a rewrite directive, so this is not a standard handler directive.
 // A try_files directive has this syntax (notice no matcher tokens accepted):
 //
-//    try_files <files...>
+//	try_files <files...>
 //
 // and is basically shorthand for:
 //
-//    @try_files {
-//        file {
-//            try_files <files...>
-//        }
-//    }
-//    rewrite @try_files {http.matchers.file.relative}
+//	@try_files {
+//	    file {
+//	        try_files <files...>
+//	    }
+//	}
+//	rewrite @try_files {http.matchers.file.relative}
 //
 // This directive rewrites request paths only, preserving any other part
 // of the URI, unless the part is explicitly given in the file list. For
 // example, if any of the files in the list have a query string:
 //
-//    try_files {path} index.php?{query}&p={path}
+//	try_files {path} index.php?{query}&p={path}
 //
 // then the query string will not be treated as part of the file name; and
 // if that file matches, the given query string will replace any query string

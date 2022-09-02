@@ -15,7 +15,7 @@
 package caddy
 
 import (
-	"github.com/caddyserver/caddy/v2/notify"
+	"github.com/xlp/caddy/v2/notify"
 	"golang.org/x/sys/windows/svc"
 )
 

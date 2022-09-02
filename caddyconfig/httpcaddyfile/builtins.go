@@ -25,13 +25,13 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
-	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez/acme"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/modules/caddytls"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap/zapcore"
 )
 
@@ -52,8 +52,7 @@ func init() {
 
 // parseBind parses the bind directive. Syntax:
 //
-//     bind <addresses...>
-//
+//	bind <addresses...>
 func parseBind(h Helper) ([]ConfigValue, error) {
 	var lnHosts []string
 	for h.Next() {
@@ -64,28 +63,27 @@ func parseBind(h Helper) ([]ConfigValue, error) {
 
 // parseTLS parses the tls directive. Syntax:
 //
-//     tls [<email>|internal]|[<cert_file> <key_file>] {
-//         protocols <min> [<max>]
-//         ciphers   <cipher_suites...>
-//         curves    <curves...>
-//         client_auth {
-//             mode                   [request|require|verify_if_given|require_and_verify]
-//             trusted_ca_cert        <base64_der>
-//             trusted_ca_cert_file   <filename>
-//             trusted_leaf_cert      <base64_der>
-//             trusted_leaf_cert_file <filename>
-//         }
-//         alpn      <values...>
-//         load      <paths...>
-//         ca        <acme_ca_endpoint>
-//         ca_root   <pem_file>
-//         dns       <provider_name> [...]
-//         on_demand
-//         eab    <key_id> <mac_key>
-//         issuer <module_name> [...]
-//         get_certificate <module_name> [...]
-//     }
-//
+//	tls [<email>|internal]|[<cert_file> <key_file>] {
+//	    protocols <min> [<max>]
+//	    ciphers   <cipher_suites...>
+//	    curves    <curves...>
+//	    client_auth {
+//	        mode                   [request|require|verify_if_given|require_and_verify]
+//	        trusted_ca_cert        <base64_der>
+//	        trusted_ca_cert_file   <filename>
+//	        trusted_leaf_cert      <base64_der>
+//	        trusted_leaf_cert_file <filename>
+//	    }
+//	    alpn      <values...>
+//	    load      <paths...>
+//	    ca        <acme_ca_endpoint>
+//	    ca_root   <pem_file>
+//	    dns       <provider_name> [...]
+//	    on_demand
+//	    eab    <key_id> <mac_key>
+//	    issuer <module_name> [...]
+//	    get_certificate <module_name> [...]
+//	}
 func parseTLS(h Helper) ([]ConfigValue, error) {
 	cp := new(caddytls.ConnectionPolicy)
 	var fileLoader caddytls.FileLoader
@@ -121,7 +119,7 @@ func parseTLS(h Helper) ([]ConfigValue, error) {
 
 			// tag this certificate so if multiple certs match, specifically
 			// this one that the user has provided will be used, see #2588:
-			// https://github.com/caddyserver/caddy/issues/2588 ... but we
+			// https://github.com/xlp/caddy/issues/2588 ... but we
 			// must be careful about how we do this; being careless will
 			// lead to failed handshakes
 			//
@@ -515,8 +513,7 @@ func parseTLS(h Helper) ([]ConfigValue, error) {
 
 // parseRoot parses the root directive. Syntax:
 //
-//     root [<matcher>] <path>
-//
+//	root [<matcher>] <path>
 func parseRoot(h Helper) (caddyhttp.MiddlewareHandler, error) {
 	var root string
 	for h.Next() {
@@ -694,12 +691,11 @@ func parseHandleErrors(h Helper) ([]ConfigValue, error) {
 
 // parseLog parses the log directive. Syntax:
 //
-//     log {
-//         output <writer_module> ...
-//         format <encoder_module> ...
-//         level  <level>
-//     }
-//
+//	log {
+//	    output <writer_module> ...
+//	    format <encoder_module> ...
+//	    level  <level>
+//	}
 func parseLog(h Helper) ([]ConfigValue, error) {
 	return parseLogHelper(h, nil)
 }

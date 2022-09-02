@@ -17,8 +17,8 @@ package maphandler
 import (
 	"strings"
 
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
 )
 
 func init() {
@@ -27,10 +27,10 @@ func init() {
 
 // parseCaddyfile sets up the map handler from Caddyfile tokens. Syntax:
 //
-//     map [<matcher>] <source> <destinations...> {
-//         [~]<input> <outputs...>
-//         default    <defaults...>
-//     }
+//	map [<matcher>] <source> <destinations...> {
+//	    [~]<input> <outputs...>
+//	    default    <defaults...>
+//	}
 //
 // If the input value is prefixed with a tilde (~), then the input will be parsed as a
 // regular expression.

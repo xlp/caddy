@@ -25,10 +25,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez/acme"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 

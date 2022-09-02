@@ -23,8 +23,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
 	"github.com/mholt/acmez"
+	"github.com/xlp/caddy/v2"
 )
 
 func init() {

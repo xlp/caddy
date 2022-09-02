@@ -40,9 +40,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/caddyserver/caddy/v2/notify"
-	"github.com/caddyserver/certmagic"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/xlp/caddy/v2/notify"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
 )
 
 func init() {
@@ -62,11 +62,10 @@ func (m VarsMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request, next H
 
 // UnmarshalCaddyfile implements caddyfile.Unmarshaler. Syntax:
 //
-//     vars [<name> <val>] {
-//         <name> <val>
-//         ...
-//     }
-//
+//	vars [<name> <val>] {
+//	    <name> <val>
+//	    ...
+//	}
 func (m *VarsMiddleware) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	if *m == nil {
 		*m = make(VarsMiddleware)

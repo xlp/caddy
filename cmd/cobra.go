@@ -79,7 +79,7 @@ Custom Caddy builds are available on the Caddy download page at:
 https://caddyserver.com/download
 
 The xcaddy command can be used to build Caddy from source with or
-without additional plugins: https://github.com/caddyserver/xcaddy
+without additional plugins: https://github.com/xlp/xcaddy
 
 Where possible, Caddy should be installed using officially-supported
 package installers: https://caddyserver.com/docs/install

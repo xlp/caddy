@@ -21,7 +21,7 @@ import (
 	"log"
 	"reflect"
 
-	"github.com/caddyserver/certmagic"
+	"github.com/xlp/certmagic"
 	"go.uber.org/zap"
 )
 

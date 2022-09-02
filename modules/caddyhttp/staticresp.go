@@ -27,10 +27,10 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	caddycmd "github.com/caddyserver/caddy/v2/cmd"
+	"github.com/xlp/caddy/v2"
+	"github.com/xlp/caddy/v2/caddyconfig"
+	"github.com/xlp/caddy/v2/caddyconfig/caddyfile"
+	caddycmd "github.com/xlp/caddy/v2/cmd"
 )
 
 func init() {

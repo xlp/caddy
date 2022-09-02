@@ -15,9 +15,9 @@
 package push
 
 import (
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/headers"
+	"github.com/xlp/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/xlp/caddy/v2/modules/caddyhttp"
+	"github.com/xlp/caddy/v2/modules/caddyhttp/headers"
 )
 
 func init() {
@@ -26,13 +26,13 @@ func init() {
 
 // parseCaddyfile sets up the push handler. Syntax:
 //
-//     push [<matcher>] [<resource>] {
-//         [GET|HEAD] <resource>
-//         headers {
-//             [+]<field> [<value|regexp> [<replacement>]]
-//             -<field>
-//         }
-//     }
+//	push [<matcher>] [<resource>] {
+//	    [GET|HEAD] <resource>
+//	    headers {
+//	        [+]<field> [<value|regexp> [<replacement>]]
+//	        -<field>
+//	    }
+//	}
 //
 // A single resource can be specified inline without opening a
 // block for the most common/simple case. Or, a block can be

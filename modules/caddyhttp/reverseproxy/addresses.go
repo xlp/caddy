@@ -20,7 +20,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
+	"github.com/xlp/caddy/v2"
 )
 
 // parseUpstreamDialAddress parses configuration inputs for

@@ -47,7 +47,7 @@ func Listen(network, addr string) (net.Listener, error) {
 	sharedLn, _, err := listenerPool.LoadOrNew(lnKey, func() (Destructor, error) {
 		ln, err := net.Listen(network, addr)
 		if err != nil {
-			// https://github.com/caddyserver/caddy/pull/4534
+			// https://github.com/xlp/caddy/pull/4534
 			if isUnixNetwork(network) && isListenBindAddressAlreadyInUseError(err) {
 				return nil, fmt.Errorf("%w: this can happen if Caddy was forcefully killed", err)
 			}
@@ -71,7 +71,7 @@ func ListenPacket(network, addr string) (net.PacketConn, error) {
 	sharedPc, _, err := listenerPool.LoadOrNew(lnKey, func() (Destructor, error) {
 		pc, err := net.ListenPacket(network, addr)
 		if err != nil {
-			// https://github.com/caddyserver/caddy/pull/4534
+			// https://github.com/xlp/caddy/pull/4534
 			if isUnixNetwork(network) && isListenBindAddressAlreadyInUseError(err) {
 				return nil, fmt.Errorf("%w: this can happen if Caddy was forcefully killed", err)
 			}
@@ -256,7 +256,7 @@ func (fcpc *fakeClosePacketConn) Close() error {
 	return nil
 }
 
-// Supports QUIC implementation: https://github.com/caddyserver/caddy/issues/3998
+// Supports QUIC implementation: https://github.com/xlp/caddy/issues/3998
 func (fcpc fakeClosePacketConn) SetReadBuffer(bytes int) error {
 	if conn, ok := fcpc.PacketConn.(interface{ SetReadBuffer(int) error }); ok {
 		return conn.SetReadBuffer(bytes)
@@ -264,7 +264,7 @@ func (fcpc fakeClosePacketConn) SetReadBuffer(bytes int) error {
 	return fmt.Errorf("SetReadBuffer() not implemented for %T", fcpc.PacketConn)
 }
 
-// Supports QUIC implementation: https://github.com/caddyserver/caddy/issues/3998
+// Supports QUIC implementation: https://github.com/xlp/caddy/issues/3998
 func (fcpc fakeClosePacketConn) SyscallConn() (syscall.RawConn, error) {
 	if conn, ok := fcpc.PacketConn.(interface {
 		SyscallConn() (syscall.RawConn, error)
@@ -569,7 +569,7 @@ var listenerPool = NewUsagePool()
 
 const maxPortSpan = 65535
 
-// Interface guards (see https://github.com/caddyserver/caddy/issues/3998)
+// Interface guards (see https://github.com/xlp/caddy/issues/3998)
 var (
 	_ (interface{ SetReadBuffer(int) error }) = (*fakeClosePacketConn)(nil)
 	_ (interface {
